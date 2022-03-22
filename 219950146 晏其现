@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char a[100],word[30];
+    int x=0,y,i=0,j=0,count=0,sum=0;
+	printf("请输入一个句子:\n");
+    while((a[x] = getchar()) != '\n')
+	{
+        i++;
+        x++;
+	}
+	strlwr(a);
+    x=0;
+    rewind(stdin);
+    printf("请输入需查单词:\n");
+    while((word[x] = getchar()) != '\n')
+	{
+        j++;
+        x++;
+	}
+    strlwr(word);
+    for (x = 0; x < i; x++)
+	{   
+	    count = 0;
+        if(a[x] == word[0])
+		{
+            for(y=0;y<j;y++)
+			{
+                if(a[x+y] == word[y])
+				{
+                    count++;
+				}
+			}
+            if(count == j)
+				sum++;
+		}
+	}
+    printf("该单词出现次数为%d\n",sum);
+	return 0;
+}
